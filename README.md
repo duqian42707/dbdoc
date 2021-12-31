@@ -1,6 +1,6 @@
 # dbdoc
 
-本项目是一个在命令行执行的数据库文档生成工具，基于springboot2.5.0
+本项目是一个在命令行执行的数据库文档生成工具，基于springboot2.5.x
 
 核心组件：https://github.com/pingfangushi/screw
 

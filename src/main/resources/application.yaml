@@ -4,12 +4,10 @@ spring:
     url: jdbc:oracle:thin:@127.0.0.1:1521:PORTALDB
     username: info
     password: 111111
-
 logging:
   level:
     root: info
     com.dqv5: debug
-
 # 自定义导出配置
 dbdoc:
   output-dir: ~/Desktop/temp/
