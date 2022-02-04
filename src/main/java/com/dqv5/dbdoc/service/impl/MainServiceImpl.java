@@ -31,7 +31,6 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public void exportToFile() {
-
         EngineFileType engineFileType = config.getFileType();
         String description = config.getDescription();
         String version = config.getVersion();

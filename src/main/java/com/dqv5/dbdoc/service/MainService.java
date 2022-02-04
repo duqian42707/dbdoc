@@ -6,7 +6,9 @@ package com.dqv5.dbdoc.service;
  */
 
 public interface MainService {
-
+    /**
+     * 导出到文件
+     */
     void exportToFile();
 
 }

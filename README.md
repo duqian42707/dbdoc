@@ -4,9 +4,23 @@
 
 核心组件：https://github.com/pingfangushi/screw
 
+## 使用方法
 
-## 修改配置文件
+### 1. 获取程序
 
+- 方式一：下载jar包，[下载地址](https://github.com/duqian42707/dbdoc/releases/latest)
+- 方式二：从源码编译，[源码地址](https://github.com/duqian42707/dbdoc)
+
+    ```bash
+    mvn clean package
+    ```
+
+### 2. 修改配置文件
+
+- 方式一：使用vim直接编辑jar包中的`application.yml`文件
+- 方式二：在jar包同级目录下新建`application.yml`文件 （推荐）
+
+文件内容：
 ```yaml
 spring:
   datasource:
@@ -41,14 +55,7 @@ dbdoc:
 #    - _BAK
 ```
 
-## build
-
-```bash
-mvn clean package
-```
-
-
-## run
+### 3. 运行
 
 ```bash
 java -jar dbdoc-1.0.0.jar
