@@ -21,6 +21,7 @@
 - 方式二：在jar包同级目录下新建`application.yml`文件 （推荐）
 
 文件内容：
+
 ```yaml
 spring:
   datasource:
@@ -58,6 +59,13 @@ dbdoc:
 ### 3. 运行
 
 ```bash
-java -jar dbdoc-1.0.0.jar
+java -jar dbdoc-1.0.1.jar
 ```
 
+### 4. 备注
+
+postgresql 指定数据库为mars、模式为info的写法url：
+
+```txt
+jdbc:postgresql://127.0.0.1:5432/mars?currentSchema=info
+```
