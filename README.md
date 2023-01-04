@@ -59,7 +59,7 @@ dbdoc:
 ### 3. 运行
 
 ```bash
-java -jar dbdoc-1.0.1.jar
+java -jar dbdoc-1.0.2.jar
 ```
 
 ### 4. 备注
