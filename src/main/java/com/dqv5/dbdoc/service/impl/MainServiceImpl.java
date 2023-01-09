@@ -41,7 +41,9 @@ public class MainServiceImpl implements MainService {
                 //文件类型
                 .fileType(engineFileType)
                 //生成模板实现
-                .produceType(EngineTemplateType.freemarker)
+                .produceType(config.getProduceType())
+                //自定义模板，模板需要和文件类型和使用模板的语法进行编写和处理，否则将会生成错误
+                .customTemplate(config.getCustomTemplate())
                 .build();
 
         // 指定表名称

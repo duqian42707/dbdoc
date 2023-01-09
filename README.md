@@ -37,10 +37,13 @@ logging:
 
 # 自定义导出配置
 dbdoc:
-  output-dir: ~/Desktop/temp/
-  file-type: HTML    # 文档格式：HTML | WORD | MD
+  output-dir: ./output/
+  file-type: HTML           # 文档格式：HTML | WORD | MD
   version: 1.0.0
   description: 数据库表结构文档
+#  produce-type: freemarker  # 生成模板的实现 freemarker|velocity，默认freemarker
+#  # 自定义文档模板的文件路径，模板需要和文件类型和使用模板的语法进行编写和处理，否则将会生成错误
+#  custom-template: "D:\\Documents\\workspace_personal\\dbdoc\\templates\\documentation_word.ftl"
 #  table-names: # 按表名，可配置多个，非必须
 #    - BASE_DEPT
 #    - LEAVE_APPLY
@@ -54,12 +57,13 @@ dbdoc:
 #    - TEST
 #  ignore-suffixes: # 忽略后缀，可配置多个，非必须
 #    - _BAK
+
 ```
 
 ### 3. 运行
 
 ```bash
-java -jar dbdoc-1.0.2.jar
+java -jar dbdoc-1.0.3.jar
 ```
 
 ### 4. 备注

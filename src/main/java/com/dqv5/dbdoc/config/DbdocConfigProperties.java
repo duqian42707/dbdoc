@@ -1,6 +1,7 @@
 package com.dqv5.dbdoc.config;
 
 import cn.smallbun.screw.core.engine.EngineFileType;
+import cn.smallbun.screw.core.engine.EngineTemplateType;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,8 @@ public class DbdocConfigProperties {
     private EngineFileType fileType;
     private String description;
     private String version;
+    private EngineTemplateType produceType = EngineTemplateType.freemarker;
+    private String customTemplate;
     private List<String> tableNames;
     private List<String> tablePrefixes;
     private List<String> tableSuffixes;

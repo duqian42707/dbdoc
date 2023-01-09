@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.dqv5.dbdoc</groupId>
     <artifactId>dbdoc</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>dbdoc</name>
 
     <properties>
