@@ -192,7 +192,10 @@
                                 <w:sz w:val="21"/>
                                 <w:szCs w:val="21"/>
                             </w:rPr>
-                            <w:t>${t.remarks} (${t.tableName!''})</w:t>
+                            <#if (t.remarks??)&&(t.remarks?length gt 1)>
+                                <w:t>${t.remarks} (${t.tableName!''})</w:t><#else>
+                                <w:t>${t.tableName!''}</w:t>
+                            </#if>
                         </w:r>
                         </w:p><#--页面设置-->
                         <w:tbl>
