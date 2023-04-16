@@ -29,6 +29,8 @@ spring:
     url: jdbc:oracle:thin:@127.0.0.1:1521:PORTALDB
     username: info
     password: 111111
+#    hikari:
+#      schema: JIAOWU
 
 logging:
   level:
