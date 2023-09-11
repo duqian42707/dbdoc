@@ -1,5 +1,10 @@
 package com.dqv5.dbdoc.service;
 
+import com.dqv5.dbdoc.pojo.DbdocConfigDTO;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+
 /**
  * @author duqian
  * @date 2020/7/22
@@ -7,8 +12,8 @@ package com.dqv5.dbdoc.service;
 
 public interface MainService {
     /**
-     * 导出到文件
+     * 生成文件并下载
      */
-    void exportToFile();
+    File generate(DbdocConfigDTO param, MultipartFile template);
 
 }

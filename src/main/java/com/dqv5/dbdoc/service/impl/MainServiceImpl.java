@@ -6,13 +6,17 @@ import cn.smallbun.screw.core.engine.EngineFileType;
 import cn.smallbun.screw.core.engine.EngineTemplateType;
 import cn.smallbun.screw.core.execute.DocumentationExecute;
 import cn.smallbun.screw.core.process.ProcessConfig;
-import com.dqv5.dbdoc.config.DbdocConfigProperties;
+import com.dqv5.dbdoc.pojo.DbdocConfigDTO;
 import com.dqv5.dbdoc.service.MainService;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -23,27 +27,35 @@ import java.util.List;
 @Slf4j
 public class MainServiceImpl implements MainService {
 
-    @Resource
-    private DataSource dataSource;
-
-    @Resource
-    private DbdocConfigProperties config;
-
     @Override
-    public void exportToFile() {
-        EngineFileType engineFileType = config.getFileType();
+    public File generate(DbdocConfigDTO config, MultipartFile template) {
+        log.info("config: {}", config);
+        log.info("template: {}", template);
+
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setJdbcUrl(config.getDbUrl());
+        hikariConfig.setUsername(config.getDbUsername());
+        hikariConfig.setPassword(config.getDbPassword());
+        if (StringUtils.isNotBlank(config.getDbSchema())) {
+            hikariConfig.setSchema(config.getDbSchema());
+        }
+
+        DataSource dataSource = new HikariDataSource(hikariConfig);
+
+
+        EngineFileType engineFileType = EngineFileType.valueOf(config.getFileType());
         String description = config.getDescription();
         String version = config.getVersion();
         //生成配置
         EngineConfig engineConfig = EngineConfig.builder()
                 //生成文件路径
-                .fileOutputDir(config.getOutputDir())
+                .fileOutputDir("./output/")
                 //文件类型
                 .fileType(engineFileType)
                 //生成模板实现
-                .produceType(config.getProduceType())
-                //自定义模板，模板需要和文件类型和使用模板的语法进行编写和处理，否则将会生成错误
-                .customTemplate(config.getCustomTemplate())
+                .produceType(EngineTemplateType.freemarker)
+//                //自定义模板，模板需要和文件类型和使用模板的语法进行编写和处理，否则将会生成错误
+//                .customTemplate(config.getCustomTemplate())
                 .build();
 
         // 指定表名称
@@ -87,8 +99,9 @@ public class MainServiceImpl implements MainService {
                 .produceConfig(processConfig)
                 .build();
         //执行生成
-        new DocumentationExecute(configuration).execute();
-        log.info("文档生成成功，目录：{}", config.getOutputDir());
+        File file = new DocumentationExecute(configuration).execute();
+        log.info("文档生成成功: {}", file);
+        return file;
     }
 
 }
