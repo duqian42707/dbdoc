@@ -8,6 +8,7 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {NzSpinModule} from "ng-zorro-antd/spin";
 import {NzRadioModule} from "ng-zorro-antd/radio";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzUploadModule} from "ng-zorro-antd/upload";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {NzSelectModule} from "ng-zorro-antd/select";
     NzInputModule,
     NzSpinModule,
     NzRadioModule,
-    NzSelectModule
+    NzSelectModule,
+    NzUploadModule
   ]
 })
 export class PagesModule {

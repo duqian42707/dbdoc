@@ -1,9 +1,8 @@
 package com.dqv5.dbdoc.service;
 
 import com.dqv5.dbdoc.pojo.DbdocConfigDTO;
+import com.dqv5.dbdoc.pojo.GenerateResult;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
 
 /**
  * @author duqian
@@ -14,6 +13,8 @@ public interface MainService {
     /**
      * 生成文件并下载
      */
-    File generate(DbdocConfigDTO param, MultipartFile template);
+    GenerateResult generate(DbdocConfigDTO param, MultipartFile template);
+
+    void deleteTempFolder(String folderName);
 
 }

@@ -1,65 +1,73 @@
 <nz-spin [nzSpinning]="loading">
-    <form nz-form [formGroup]="validateForm" (ngSubmit)="submit()">
-        <!-- 数据源连接设置 start  -->
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6" nzRequired>Jdbc URL</nz-form-label>
-            <nz-form-control [nzSpan]="18">
-                <input formControlName="dbUrl" nz-input placeholder="请输入 Jdbc URL"/>
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6" nzRequired>用户名</nz-form-label>
-            <nz-form-control [nzSpan]="18">
-                <input formControlName="dbUsername" nz-input placeholder="请输入用户名"/>
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6" nzRequired>密码</nz-form-label>
-            <nz-form-control [nzSpan]="18">
-                <input formControlName="dbPassword" nz-input placeholder="请输入密码"/>
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6">Schema</nz-form-label>
-            <nz-form-control [nzSpan]="18">
-                <input formControlName="dbSchema" nz-input placeholder="数据库模式Schema"/>
-            </nz-form-control>
-        </nz-form-item>
-        <!-- 数据源连接设置 end  -->
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submit()">
+    <!-- 数据源连接设置 start  -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Jdbc URL</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <input formControlName="dbUrl" nz-input placeholder="请输入 Jdbc URL"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>用户名</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <input formControlName="dbUsername" nz-input placeholder="请输入用户名"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>密码</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <input formControlName="dbPassword" nz-input placeholder="请输入密码"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">Schema</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <input formControlName="dbSchema" nz-input placeholder="数据库模式Schema"/>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- 数据源连接设置 end  -->
 
-        <!-- 表选择 start  -->
-        <!-- 表选择 end  -->
+    <!-- 表选择 start  -->
+    <!-- 表选择 end  -->
 
 
-        <!-- 文档设置 start  -->
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6">文件类型</nz-form-label>
-            <nz-form-control [nzSpan]="18">
-                <nz-radio-group formControlName="fileType" nzButtonStyle="solid">
-                    <label nz-radio-button nzValue="HTML">Html</label>
-                    <label nz-radio-button nzValue="WORD">Word</label>
-                    <label nz-radio-button nzValue="MD">Markdown</label>
-                </nz-radio-group>
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6">版本</nz-form-label>
-            <nz-form-control [nzSpan]="18" nzErrorTip="请输入版本!">
-                <input formControlName="version" nz-input placeholder="请输入版本"/>
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSpan]="6">描述</nz-form-label>
-            <nz-form-control [nzSpan]="18" nzErrorTip="请输入描述!">
-                <input formControlName="description" nz-input placeholder="请输入描述"/>
-            </nz-form-control>
-        </nz-form-item>
-        <!-- 文档设置 end  -->
+    <!-- 文档设置 start  -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">文件类型</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <nz-radio-group formControlName="fileType" nzButtonStyle="solid">
+          <label nz-radio-button nzValue="HTML">Html</label>
+          <label nz-radio-button nzValue="WORD">Word</label>
+          <label nz-radio-button nzValue="MD">Markdown</label>
+        </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">版本</nz-form-label>
+      <nz-form-control [nzSpan]="18" nzErrorTip="请输入版本!">
+        <input formControlName="version" nz-input placeholder="请输入版本"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">描述</nz-form-label>
+      <nz-form-control [nzSpan]="18" nzErrorTip="请输入描述!">
+        <input formControlName="description" nz-input placeholder="请输入描述"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">自定义模板</nz-form-label>
+      <nz-form-control [nzSpan]="18" nzErrorTip="请输入描述!">
+        <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+          <button type="button" nz-button><i nz-icon nzType="upload"></i><span>选择文件</span></button>
+        </nz-upload>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- 文档设置 end  -->
 
-        <nz-form-item>
-            <nz-form-control [nzSpan]="18" [nzOffset]="6">
-                <button nz-button nzType="primary" [disabled]="!validateForm.valid">提交</button>
-            </nz-form-control>
-        </nz-form-item>
-    </form>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="18" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="!validateForm.valid">提交</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
 </nz-spin>

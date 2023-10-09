@@ -2,7 +2,11 @@ server:
   port: 8080
   servlet:
     context-path: /
+spring:
+  main:
+    web-application-type: ${mode}
 logging:
   level:
     root: info
     com.dqv5: debug
+mode: servlet
